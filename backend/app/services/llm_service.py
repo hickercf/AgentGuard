@@ -26,16 +26,26 @@ def call_llm(prompt):
 
     }
 
-    response = requests.post(
+    try:
+        response = requests.post(
 
-        settings.DEEPSEEK_URL,
+            settings.DEEPSEEK_URL,
 
-        headers=headers,
+            headers=headers,
 
-        json=payload
+            json=payload,
 
-    )
+            timeout=60
 
-    result = response.json()
+        )
 
-    return result["choices"][0]["message"]["content"]
+        response.raise_for_status()
+
+        result = response.json()
+
+        return result["choices"][0]["message"]["content"]
+
+    except requests.exceptions.RequestException as e:
+        return f"LLM service error: {str(e)}"
+    except (KeyError, IndexError) as e:
+        return f"LLM response parsing error: {str(e)}"

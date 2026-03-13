@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.analyze_api import router as analyze_router
 from app.api.report_api import router as report_router
 from app.api.history_api import router as history_router
+from app.api.auth_api import router as auth_router
 
 import sys
 import os
@@ -30,6 +31,7 @@ app.add_middleware(
 app.include_router(analyze_router)
 app.include_router(report_router)
 app.include_router(history_router)
+app.include_router(auth_router)
 
 
 @app.get("/")

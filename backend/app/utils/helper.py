@@ -5,7 +5,7 @@ def safe_json(data):
 
     try:
         return json.dumps(data, ensure_ascii=False, indent=2)
-    except:
+    except (TypeError, ValueError, OverflowError):
         return str(data)
 
 

@@ -24,7 +24,7 @@ def get_reports():
     cursor = conn.cursor()
 
     cursor.execute(
-        "SELECT id, task, report FROM reports ORDER BY id DESC"
+        "SELECT id, task, report, created_at FROM reports ORDER BY id DESC"
     )
 
     rows = cursor.fetchall()
