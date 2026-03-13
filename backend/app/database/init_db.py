@@ -19,6 +19,14 @@ def init_database():
     )
     """)
 
+    # Migrate existing tables: add created_at column if missing
+    cursor.execute("PRAGMA table_info(reports)")
+    columns = [col[1] for col in cursor.fetchall()]
+    if "created_at" not in columns:
+        cursor.execute(
+            "ALTER TABLE reports ADD COLUMN created_at TIMESTAMP DEFAULT NULL"
+        )
+
     conn.commit()
     conn.close()
     print("数据库创建成功")
