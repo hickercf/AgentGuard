@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Agent Guard AI安全平台</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h1>Agent Guard AI安全分析平台</h1>
+
+<div class="container">
+
+<textarea id="taskInput" placeholder="输入智能体任务或代码..."></textarea>
+
+<button onclick="analyzeTask()">开始安全分析</button>
+
+</div>
+
+<h2>分析结果</h2>
+
+<pre id="result"></pre>
+
+<h2>历史记录</h2>
+
+<button onclick="loadHistory()">刷新历史</button>
+
+<pre id="history"></pre>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "Arbitrary Code Execution",
+  "description": "执行未验证代码可能导致系统被控制",
+  "risk": "远程命令执行",
+  "mitigation": [
+    "限制执行权限",
+    "沙箱环境运行",
+    "静态代码扫描"
+  ]
+}

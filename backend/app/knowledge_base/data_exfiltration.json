@@ -1,0 +1,10 @@
+{
+  "name": "Data Exfiltration",
+  "description": "AI泄露敏感信息",
+  "risk": "隐私泄露",
+  "mitigation": [
+    "敏感数据脱敏",
+    "限制访问权限",
+    "日志审计"
+  ]
+}
