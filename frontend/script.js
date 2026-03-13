@@ -14,7 +14,8 @@ async function analyzeTask(){
         },
 
         body:JSON.stringify({
-            task:task
+            task: task,
+            code: ""
         })
 
     })
