@@ -1,3 +1,9 @@
+import sys
+import os
+
+# 将 backend 目录加入模块搜索路径（必须在 app.* 导入之前）
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -5,13 +11,10 @@ from app.api.analyze_api import router as analyze_router
 from app.api.report_api import router as report_router
 from app.api.history_api import router as history_router
 from app.api.auth_api import router as auth_router
+from app.database.init_db import init_database
 
-import sys
-import os
-
-# 将 backend 目录加入模块搜索路径
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# 启动时自动初始化数据库
+init_database()
 
 app = FastAPI(
     title="Agent Guard",
